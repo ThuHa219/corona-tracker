@@ -2,17 +2,24 @@ package edu.hanu.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
 public class CovidUser {
 	
-	private int age;
-	private String gender;
-	private Date symptomOnset;
-	private Date hospVisitDate;
-	private Date exposureStart;
-	private Date reportDate;
-	private boolean death;
-	private String symptom;
+	@JsonProperty("coordinate")
+	private Coordinate coordinate;
+	@JsonProperty("province")
+	private String province;
+	@JsonProperty("country")
+	private String country;
+	@JsonProperty("cases_today")
+	private int cases;
+	@Override
+	public String toString() {
+		return "CovidUser [coordinate=" + coordinate + ", province=" + province + ", country=" + country + ", cases="
+				+ cases + "]";
+	}
 }

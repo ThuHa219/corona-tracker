@@ -1,20 +1,29 @@
 package edu.hanu.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
 @Data
 public class CovidData {
-	@JsonProperty("last_updated")
-	private String lastUpdated;
-	@JsonProperty("comfirmed")
-	private int confirmed;
-	@JsonProperty("deaths")
-	private int deaths;
-	@JsonProperty("recovered")
-	private int recovered;
-	@JsonProperty("location")
+	
+	@JsonIgnore
+	private long id;
+	@JsonProperty("country")
 	private Location location;
-
+	@JsonProperty("cases")
+	private Cases cases;
+	@JsonProperty("deaths")
+	private Death deaths;
+	@JsonProperty("tests")
+	private Test test;
+	@JsonProperty("day")
+	private String day;
+	@JsonProperty("time")
+	private String time;
 }
