@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
 	<a class="navbar-brand" href="home"> <img
 		src="<%=request.getContextPath()%>/images/corona-icon.png" width="30"
 		height="30" alt=""> Corona Tracker
@@ -11,10 +11,11 @@
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
 			<a class="nav-item nav-link active" href="home">Home <span
-				class="sr-only">(current)</span></a> <a class="nav-item nav-link"
-				href="analysis">Analysis</a> <a class="nav-item nav-link" href="map">Map</a>
-			<a class="nav-item nav-link disabled" href="#" tabindex="-1"
-				aria-disabled="true">Timeline</a>
+				class="sr-only">(current)</span></a>
+				 <a class="nav-item nav-link"
+				href="analysis">Analysis</a>
+				 <a class="nav-item nav-link" href="map">Map</a>
+			<a class="nav-item nav-link" href="timeline">Timeline</a>
 		</div>
 	</div>
 </nav>

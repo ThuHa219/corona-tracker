@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,12 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include
-		page="template/header.jsp"></jsp:include>
-<iframe src="https://www.google.com/maps/d/embed?mid=1a04iBi41DznkMaQRnICO40ktROfnMfMx" style = "width: 80%; height:800px; position: absolute; left: 10%"></iframe>
+	<jsp:include page="template/header.jsp"></jsp:include>
+	<div class="container-sm">
+	<iframe
+		src="https://www.google.com/maps/d/embed?mid=1a04iBi41DznkMaQRnICO40ktROfnMfMx"
+		style="width: 100%; height: 800px; position: relative;"></iframe>
+	</div>
+	<jsp:include page="template/footer.jsp"></jsp:include>
 </body>
 </html>

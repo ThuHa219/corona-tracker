@@ -39,32 +39,6 @@
   }
     
   </script>
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawLineChart() {
-    	  $.ajax({
-              url: "states.json",
-              dataType: "JSON"
-            }).done(function(data) {
-                    var statesArray = [["State",dimension]];
-                    $.each(data.states, function() {
-                        var stateitem = [this.abbrev, this[dimension]];
-                        statesArray.push(stateitem);
-                    });
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -80,26 +54,22 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
+<link
+	href="${pageContext.request.contextPath}/common/css/simple-sidebar.css"
+	rel="stylesheet">
+<script
+	src="${pageContext.request.contextPath}/common/jquery/jquery.min.js"></script>
 </head>
 <body>
 	<jsp:include page="template/header.jsp"></jsp:include>
-	<div class="container-md">
 	<div class="row">
 		<div class="col-3">
-			<aside class="menu">
-				<p class="menu-label">General</p>
-				<ul class="menu-list">
-					<li><a href="/analysis/age">1. Analyst by Confirmed</a></li>
-					<li><a href="/analysis/country">2. Analyst by Deaths</a></li>
-					<li><a href="/analysis/gender">3. Analyst by Recovered</a></li>
-					<li><a href="/analysis/symptom">4. Analyst by Test</a></li>
-				</ul>
-			</aside>
+			<jsp:include page="template/sidebar.jsp"></jsp:include>
 		</div>
 		<div class="col-9">
 			<div id="barchart_values" style="width: 900px; height: 500px"></div>
 		</div>
 	</div>
-	</div>
+	<jsp:include page="template/footer.jsp"></jsp:include>
 </body>
 </html>

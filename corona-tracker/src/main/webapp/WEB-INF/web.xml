@@ -5,7 +5,7 @@
 	version="3.1">
 	<display-name>corona-tracker</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>home</welcome-file>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>default.html</welcome-file>
@@ -33,10 +33,49 @@
 	<servlet-mapping>
 		<servlet-name>AnalysisController</servlet-name>
 		<url-pattern>/analysis</url-pattern>
+		<url-pattern>/analysisDeaths</url-pattern>
+		<url-pattern>/analysisRecovered</url-pattern>
+		<url-pattern>/analysisTest</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>MapController</servlet-name>
 		<url-pattern>/map</url-pattern>
 	</servlet-mapping>
-
+				<!-- admin -->
+	 <servlet>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>edu.hanu.controller.AdminLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/admin/login</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PatientController</servlet-name>
+		<servlet-class>edu.hanu.controller.PatientServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PatientController</servlet-name>
+		<url-pattern>/admin/add</url-pattern>
+		<url-pattern>/admin/edit</url-pattern>
+		<url-pattern>/admin/delete</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AdminChangePasswordController</servlet-name>
+		<servlet-class>edu.hanu.controller.AdminChangePassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminChangePasswordController</servlet-name>
+		<url-pattern>/admin/adminchangepassword</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PatientListController</servlet-name>
+		<servlet-class>edu.hanu.controller.PatientListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PatientListController</servlet-name>
+		<url-pattern>/admin/PatientServlet</url-pattern>
+		<url-pattern>/timeline</url-pattern>
+	</servlet-mapping>
+				<!-- admin -->
 </web-app>

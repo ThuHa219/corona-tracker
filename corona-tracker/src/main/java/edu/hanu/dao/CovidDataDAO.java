@@ -22,7 +22,7 @@ public class CovidDataDAO implements Dao<CovidData> {
 	private static final String SELECT_ALL_SQL_QUERY = "SELECT * FROM covid_data";
 	private static final String DELETE_SQL_QUERY = "DELETE FROM covid_data WHERE covid_data.covid_data_id = ?";
 	private static final String DELETE_ALL_SQL_QUERY = "DELETE FROM covid_data";
-	private static final String SELECT_LATEST_QUERY = "SELECT * FROM (SELECT * FROM covid_data ORDER BY covid_data_id DESC LIMIT 217) AS T ORDER BY covid_data_id ASC;";
+	private static final String SELECT_LATEST_QUERY = "SELECT * FROM (SELECT * FROM covid_data ORDER BY covid_data_id DESC LIMIT 224) AS T ORDER BY covid_data_id ASC;";
 
 	private LocationDAO locationDAO = new LocationDAO();
 	private CasesDAO casesDAO = new CasesDAO();
@@ -104,7 +104,6 @@ public class CovidDataDAO implements Dao<CovidData> {
 			}
 		}
 		return covidDatas;
-
 	}
 
 	@Override
@@ -244,7 +243,7 @@ public class CovidDataDAO implements Dao<CovidData> {
 		}
 	}
 
-	private List<CovidData> getLatestData() {
+	public List<CovidData> getLatestData() {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -253,6 +252,45 @@ public class CovidDataDAO implements Dao<CovidData> {
 			conn = DbUtils.initialise();
 			if (conn == null) {
 				throw new NullPointerException("CovidDataDAO.getAll: Connection is null");
+			}
+			ps = conn.prepareStatement(SELECT_LATEST_QUERY);
+			rs = ps.executeQuery();
+			System.out.println(ps.toString());
+			while (rs.next()) {
+				CovidData covidData = new CovidData();
+				covidData.setId(rs.getLong("covid_data_id"));
+				covidData.setLocation(locationDAO.get(rs.getLong("location_id")));
+				covidData.setCases(casesDAO.get(rs.getLong("cases_id")));
+				covidData.setDeaths(deathDAO.get(rs.getLong("death_id")));
+				covidData.setTest(testDAO.get(rs.getLong("test_id")));
+				covidData.setDay(rs.getString("day_updated"));
+				covidData.setTime(rs.getString("time_updated"));
+				covidDatas.add(covidData);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				DbUtils.closeResultSet(rs);
+				DbUtils.closePreparedStatement(ps);
+				DbUtils.closeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return covidDatas;
+	}
+	
+	
+	public List<CovidData> getAllLatest() {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<CovidData> covidDatas = new ArrayList<>();
+		try {
+			conn = DbUtils.initialise();
+			if (conn == null) {
+				throw new NullPointerException("CovidDataDAO.getAllLatest: Connection is null");
 			}
 			ps = conn.prepareStatement(SELECT_LATEST_QUERY);
 			rs = ps.executeQuery();
