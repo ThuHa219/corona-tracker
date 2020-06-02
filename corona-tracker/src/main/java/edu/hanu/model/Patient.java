@@ -1,5 +1,8 @@
 package edu.hanu.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Patient {
 	private String timeUpdate;
 	private String patientId;

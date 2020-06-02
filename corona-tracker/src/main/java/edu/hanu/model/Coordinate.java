@@ -1,8 +1,11 @@
 package edu.hanu.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Data;
 
 @Data
+@XmlRootElement
 public class Coordinate {
 	
 	private long id;

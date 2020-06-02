@@ -1,6 +1,7 @@
 package edu.hanu.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import edu.hanu.dao.CovidDataDAO;
 import edu.hanu.dao.TimeUpdatedDAO;
+import edu.hanu.exception.DataNotFoundException;
 import edu.hanu.model.CovidData;
 
 public class CoronaVirusServiceImpl implements CoronaVirusService {
@@ -25,9 +27,14 @@ public class CoronaVirusServiceImpl implements CoronaVirusService {
 //	private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 	private CacheManager cacheManager;
 	private TimeUpdatedDAO timeUpdatedDAO = new TimeUpdatedDAO();
+	private CovidDataDAO dao = new CovidDataDAO();
 
 	public CoronaVirusServiceImpl(CacheManager cacheManager) {
 		this.cacheManager = cacheManager;
+	}
+	
+	public CoronaVirusServiceImpl() {
+		//do nothing
 	}
 
 //	public void getCovidUser() throws IOException, InterruptedException {
@@ -112,6 +119,25 @@ public class CoronaVirusServiceImpl implements CoronaVirusService {
 //		List<CovidData> covidDatas = this.covidDatas;
 //		return covidDatas.subList(0, 6);
 //	}
+	
+	public CovidData get(long id) {
+		CovidData covidData = dao.get(id);
+		if (covidData == null) {
+			throw new DataNotFoundException("Can not find the number of covidData with id: " + id);
+		}
+		return covidData;
+	}
+
+	public List<CovidData> getAll() {
+		return dao.getAll();
+	}
+
+	public List<CovidData> getPaginated(int start, int size) {
+		ArrayList<CovidData> list = new ArrayList<CovidData>(dao.getAll());
+		if (start + size > list.size())
+			return new ArrayList<CovidData>();
+		return ((ArrayList<CovidData>) list).subList(start, start + size);
+	}
 
 	public static void main(String[] args) throws JsonMappingException, JsonProcessingException {
 		CoronaVirusServiceImpl c = new CoronaVirusServiceImpl(InjectionService.getCacheManager());
