@@ -21,26 +21,30 @@
 </head>
 <body>
 <!-- Header -->
-	<div class="d-flex" id="wrapper">
-	
-	<!-- Sidebar -->
+	<div class="d-flex h5" id="wrapper">
+
+		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
 			<div class="sidebar-heading">Menu</div>
 			<div class="list-group list-group-flush">
-				<a href="PatientServlet" class="list-group-item list-group-item-action bg-light">Patient List</a> 
-					<a href="add" class="list-group-item list-group-item-action bg-light">Add Patient</a>
+				<a href="PatientServlet"
+					class="list-group-item list-group-item-action bg-light">Patient
+					List</a> <a href="add"
+					class="list-group-item list-group-item-action bg-light">Add
+					Patient</a>
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->
-		
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div style="text-align: center; color: DodgerBlue;">
 				<h1>WEBSITE ABOUT COVID-19 INFECTIOUS DISEASE</h1>
 			</div>
 			<nav
-				class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-				<button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+				class="navbar navbar-expand-lg navbar-light bg-light border-bottom h5">
+				<button class="btn btn-primary h5" id="menu-toggle">Toggle
+					Menu</button>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
@@ -52,7 +56,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
-						<li class="nav-item dropdown"><a
+						<li class="nav-item dropdown h5"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> Admin </a>

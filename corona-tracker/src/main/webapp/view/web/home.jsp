@@ -24,8 +24,10 @@
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
 </head>
-<link href="${pageContext.request.contextPath}/common/css/box.css"
+<link href="${pageContext.request.contextPath}/common/css/home.css"
 	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/common/css/box.css"
+	rel="stylesheet">	
 <body>
 	<!-- <div class="container"> -->
 	<%
@@ -62,10 +64,10 @@
 		</div>
 	</div>
 	<br />
-	<div class="flourish-embed flourish-chart" data-src="story/230114">
+	<div class="flourish-embed flourish-chart container-sm" data-src="story/230114">
 		<script src="https://public.flourish.studio/resources/embed.js"></script>
 	</div>
-	<div class="flourish-embed flourish-map" data-src="story/225979">
+	<div class="flourish-embed flourish-map container-sm" data-src="story/225979">
 		<script src="https://public.flourish.studio/resources/embed.js"></script>
 	</div>
 	<br />
@@ -73,16 +75,18 @@
 	<form class="form-group" action="home">
 		<!-- Search form -->
 		<!-- <div class="md-form mt-0"> -->
+		<div class="form-inline">
 			<input class="form-control" type="text" placeholder="Search"
-				aria-label="Search" name="country">
+				aria-label="Search" name="country"> &nbsp;&nbsp;&nbsp;&nbsp;
 		<!-- </div> -->
 		<!-- <div class="input-field second-wrap"> -->
 			<button class="btn btn-outline-info waves-effect" type="submit">SEARCH</button>
+			</div>
 		<!-- </div> -->
 	</form>
 	<br />
-	<table class="table table-striped">
-		<thead>
+	<table class="table table-hover container-sm">
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Country</th>
 				<th scope="col">Confirmed</th>
@@ -97,7 +101,7 @@
 			begin="0">
 			<tbody>
 				<tr>
-					<td><c:out value="${covidData.location.country}" /></td>
+					<th scope="row"><c:out value="${covidData.location.country}" /></th>
 					<td><c:out value="${covidData.cases.total}" /></td>
 					<td><c:out value="${covidData.cases.newCase}" /></td>
 					<td><c:out value="${covidData.deaths.total}" /></td>

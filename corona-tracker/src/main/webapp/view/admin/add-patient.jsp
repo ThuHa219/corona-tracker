@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/common/css/edit-patient.css">
 </head>
 <body>
-	<div class="d-flex" id="wrapper">
+	<div class="d-flex h5" id="wrapper">
 
 		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
@@ -25,9 +25,9 @@
 			<div class="list-group list-group-flush">
 				<a href="PatientServlet"
 					class="list-group-item list-group-item-action bg-light">Patient
-					List</a> <a href="admin/add"
+					List</a> <a href="add"
 					class="list-group-item list-group-item-action bg-light">Add
-					Patient</a> 
+					Patient</a>
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->
@@ -38,8 +38,8 @@
 				<h1>WEBSITE ABOUT COVID-19 INFECTIOUS DISEASE</h1>
 			</div>
 			<nav
-				class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-				<button class="btn btn-primary" id="menu-toggle">Toggle
+				class="navbar navbar-expand-lg navbar-light bg-light border-bottom h5">
+				<button class="btn btn-primary h5" id="menu-toggle">Toggle
 					Menu</button>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -52,7 +52,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
-						<li class="nav-item dropdown"><a
+						<li class="nav-item dropdown h5"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> Admin </a>
@@ -62,36 +62,36 @@
 									Password</a>
 
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="admin/login">Logout</a>
+								<a class="dropdown-item" href="login">Logout</a>
 							</div></li>
 					</ul>
 				</div>
 			</nav>
-			<div class="container w-50">
+			<div class="container col-6">
 				<div class="card">
 					<div class="card-body">
 						<form action="add" method="post">
 							<h3 class="text-center">ADD PATIENT</h3>
 							<input type="hidden" name="id" value='${patient.id}'>
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label>ID</label> <input type="text" value='${patient.id}'
 									class="form-control" name="patientId" required="required">
 							</fieldset>
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label for="quantity">Age</label> <input type="number"
 									value='${patient.age}' class="form-control" name="age"
 									id="quantity" required="required" min="0" max="150">
 							</fieldset>
 
 							<br>
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label>Gender:</label><br> <input type="radio" id="male"
 									name="gender" value='Male'> <label
 									for="male">Male</label><br> <input type="radio"
 									id="female" name="gender" value='Female'> <label
 									for="female">Female</label><br>
 							</fieldset>
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label>Nationality : </label> <select name="patientNationality">
 									<option value='American'>American</option>
 									<option value='Australian'>Australian</option>
@@ -118,7 +118,7 @@
 								</select>
 							</fieldset>
 
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label>Address : </label> <select name="patientAddress">
 									<option value='Bac Lieu'>Bac Lieu</option>
 									<option value='Bac Giang'>Bac Giang</option>
@@ -145,7 +145,7 @@
 								</select>
 							</fieldset>
 
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label>Patient Status:</label> <select name="patientStatus">
 									<option value='Confirmed'>Confirmed</option>
 									<option value='Died'>Died</option>
@@ -153,7 +153,7 @@
 									
 								</select>
 							</fieldset>
-							<fieldset class="form-group">
+							<fieldset class="form-group h5">
 								<label for="description">Patient Description:</label>
 								<textarea placeholder="Write something.." style="height: 200px"
 									name="desription" required="required" class="form-control"

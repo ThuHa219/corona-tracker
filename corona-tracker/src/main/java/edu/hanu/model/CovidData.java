@@ -14,6 +14,8 @@ import lombok.Data;
 @XmlRootElement
 public class CovidData {
 	
+	private String continent;
+	private String population;
 	@JsonIgnore
 	private long id;
 	@JsonProperty("country")

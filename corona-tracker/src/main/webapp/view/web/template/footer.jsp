@@ -41,7 +41,7 @@
             <br/>
               <h5>Links</h5>
               <ul class="nav-list">
-                <li><a href="#">APIs</a></li>
+                <li><a href="<%=request.getContextPath()%>/view/web/api.jsp">APIs</a></li>
                 
               </ul>
             </div>

@@ -27,13 +27,13 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CoronaVirusServiceImpl coronaService = new CoronaVirusServiceImpl(InjectionService.getCacheManager());
-		coronaService.saveCovidData();
+//		coronaService.saveCovidData();
 		String country = request.getParameter("country");
 		List<CovidData> covidData = coronaService.getCovidData();
-		CovidData world = covidData.stream().filter(data -> "All".equals(data.getLocation().getCountry()))
+		CovidData world = covidData.stream().filter(data -> "All".replaceAll("\\s","").equalsIgnoreCase(data.getLocation().getCountry().replaceAll("\\s","")))
 						.findAny().orElse(null);
 		if(country != null) {
-			covidData = covidData.stream().filter(data -> country.equals(data.getLocation().getCountry()))
+			covidData = covidData.stream().filter(data -> country.replaceAll("\\s","").equalsIgnoreCase(data.getLocation().getCountry().replaceAll("\\s","")))
 										.collect(Collectors.toList());
 		}
 		System.out.println(covidData.size());

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark sticky-top">
 	<a class="navbar-brand" href="home"> <img
 		src="<%=request.getContextPath()%>/images/corona-icon.png" width="30"
 		height="30" alt=""> Corona Tracker

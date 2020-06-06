@@ -10,6 +10,9 @@ import lombok.Data;
 @Data
 @XmlRootElement
 public class Cases {
+	
+	@JsonProperty("1M_pop")
+	private String oneMPop;
 	@JsonIgnore
 	private long id;
 	@JsonProperty("new")
@@ -34,5 +37,5 @@ public class Cases {
 	
 	public Cases() {
 		super();
-	}	
+	}
 }

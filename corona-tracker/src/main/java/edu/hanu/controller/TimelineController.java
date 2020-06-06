@@ -2,6 +2,7 @@ package edu.hanu.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -30,6 +31,7 @@ public class TimelineController {
 		List<Patient> listPatient = null;
 		try {
 			listPatient = patientService.getAllPatient();
+			Collections.reverse(listPatient);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

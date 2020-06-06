@@ -11,6 +11,8 @@ import lombok.Data;
 @XmlRootElement
 public class Death {
 	
+	@JsonProperty("1M_pop")
+	private String oneMPop;
 	@JsonIgnore
 	private long id;
 	@JsonProperty("new")
