@@ -7,7 +7,7 @@ import edu.hanu.dao.PatientDAO;
 import edu.hanu.model.Patient;
 
 public class PatientService {
-	PatientDAO patientDAO = new PatientDAO();
+	private PatientDAO patientDAO = new PatientDAO();
 	
 	public List<Patient> getAllPatient() throws SQLException{
 		List<Patient> listPatient = patientDAO.getAllPatient();

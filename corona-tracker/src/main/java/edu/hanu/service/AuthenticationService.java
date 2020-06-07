@@ -7,7 +7,7 @@ import edu.hanu.dao.AdminDAO;
 import edu.hanu.model.Admin;
 
 public class AuthenticationService {
-	PasswordAuthentication authentication = new PasswordAuthentication();
+	private PasswordAuthentication authentication = new PasswordAuthentication();
 	private AdminDAO adminDAO = new AdminDAO();
 
 	@SuppressWarnings({ "static-access", "deprecation" })

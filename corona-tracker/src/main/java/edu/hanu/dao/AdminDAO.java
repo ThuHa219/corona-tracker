@@ -15,7 +15,7 @@ public class AdminDAO {
 	private static final String SELECT_ALL_QUERRY = "SELECT * FROM admintbl";
 	private static final String UPDATE_QUERRY = "UPDATE admintbl SET password = ? WHERE username= ?";
 	private static final String DELETE_QUERRY = "DELETE FROM admintbl WHERE username= ?";
-	PasswordAuthentication authentication = new PasswordAuthentication();
+	private PasswordAuthentication authentication = new PasswordAuthentication();
 	
 	@SuppressWarnings({ "static-access", "deprecation" })
 	public void insertAdmin(Admin admin) throws SQLException {

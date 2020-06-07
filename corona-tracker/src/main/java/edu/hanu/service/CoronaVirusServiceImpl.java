@@ -37,6 +37,7 @@ public class CoronaVirusServiceImpl implements CoronaVirusService {
 		//do nothing
 	}
 
+	// get data by csv
 //	public void getCovidUser() throws IOException, InterruptedException {
 //		List<CovidUser> covidUsers = new ArrayList<>();
 //		HttpClient client = HttpClient.newHttpClient();
@@ -114,11 +115,6 @@ public class CoronaVirusServiceImpl implements CoronaVirusService {
 		}
 		return covidDataList;
 	}
-
-//	public List<CovidData> getTopCovidCountry() {
-//		List<CovidData> covidDatas = this.covidDatas;
-//		return covidDatas.subList(0, 6);
-//	}
 	
 	public CovidData get(long id) {
 		CovidData covidData = dao.get(id);

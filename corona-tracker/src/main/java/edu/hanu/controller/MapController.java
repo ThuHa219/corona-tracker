@@ -21,7 +21,6 @@ public class MapController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Hi there");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/web/map.jsp");
 		requestDispatcher.forward(request, response);
 	}
