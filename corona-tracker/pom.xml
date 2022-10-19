@@ -15,7 +15,7 @@
 		<jsp-version>2.0</jsp-version>
 		<jstl-version>1.2</jstl-version>
 		<lombok-version>1.18.4</lombok-version>
-		<jackson-version>2.10.3</jackson-version>
+		<jackson-version>2.13.4.1</jackson-version>
 		<csv-version>1.8</csv-version>
 		<jersey.version>2.30</jersey.version>
 		<mysql-driver-version>8.0.16</mysql-driver-version>
